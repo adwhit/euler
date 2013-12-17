@@ -1,3 +1,36 @@
+function primefacts(n::Int)
+    primes = primesTo(div(n,2))
+    return primefacts(n, primes)
+end
+        
+function primefacts(n::Int, primes::Vector{Int})
+    arr = Int[]
+    if n in primes
+        return arr
+    end
+    nprimes = length(primes)
+    half = div(n,2)
+    i = 1
+    while true
+        p = primes[i]
+        if p > half
+            return arr
+        end
+        if n % p == 0
+            push!(arr, p)
+            n = div(n,p)
+            if n == 1
+                return arr
+            end
+        else
+            i += 1
+            if i > nprimes
+                return arr
+            end
+        end
+    end
+end
+
 function GCD(x::Int,y::Int)
     r = x % y
     if r == 0
@@ -19,6 +52,15 @@ function isprime(x::Int)
         end
     end
     return true
+end
+
+function quicksplit(n::Int)
+    arr = Int[]
+    while n > 0
+        push!(arr, n % 10)
+        n = div(n,10)
+    end
+    return arr
 end
 
 function primesTo(x::Int)
