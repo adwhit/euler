@@ -56,3 +56,5 @@ function recurse(iarr::Vector{Int}, cl::Vector{Bool}, lg::Array{Bool,2})
         end
     end
 end
+
+main()

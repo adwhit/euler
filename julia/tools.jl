@@ -40,6 +40,15 @@ function GCD(x::Int,y::Int)
     end
 end
 
+function GCD(x::BigInt,y::BigInt)
+    r = x % y
+    if r == 0
+        return y
+    else
+        return GCD(y, r)
+    end
+end
+
 function ntoarr(n::Int) 
    return convert(Vector{Int},convert(Vector{Char},string(n))) - 48
 end
