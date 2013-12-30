@@ -1,38 +1,26 @@
-cache = Dict{(Int,Int), BigInt}()
-
-
-function ways(N::Int, mx::Int)
-    if (N,mx) in keys(cache)
-        return cache[(N,mx)]
-    end
-    if N==1
-        return 0
-    end
-    tot = BigInt(0)
-    for left=1:N-1
-        right = N-left
-        if left > mx  # invalid
-            continue
-        end
-        if left >= right
-            #score 
-            tot += 1
-        end
-        newmx = minimum((left, right, mx))
-        tot += ways(right, newmx)
-    end
-    cache[(N,mx)] = tot
-    return tot
-end
-
 function main()
-    n = 2
-    while true
-        w = ways(n,n)
-        println(n," ", w -ways(n-1,n-1))
-        if w % 1000000 == 0
-            break
+    N = 100000
+    d = 1000000
+    parr = zeros(Int,N)
+    parr[1] = 1
+    target = 10
+    for n = 2:N
+        i = 1
+        g = 1
+        w = 0
+        while g <= n
+            if g == n
+                w += (-1)^(abs(i-1))
+            else
+                w += (-1)^(abs(i-1))*parr[n-g]
+            end
+            i = i > 0 ? -i : -i + 1
+            g = div(i*(3*i-1),2)
         end
-        n+=1
+        parr[n] = w % d
+        if parr[n] % target == 0
+            println(n, " ",parr[n])
+            target *= 10
+        end
     end
 end

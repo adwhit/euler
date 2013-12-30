@@ -32,21 +32,17 @@ function primefacts(n::Int, primes::Vector{Int})
 end
 
 function GCD(x::Int,y::Int)
-    r = x % y
-    if r == 0
-        return y
-    else
-        return GCD(y, r)
+    while y != 0
+        x, y = y, x % y
     end
+    return x
 end
 
 function GCD(x::BigInt,y::BigInt)
-    r = x % y
-    if r == 0
-        return y
-    else
-        return GCD(y, r)
+    while y != 0
+        x, y = y, x % y
     end
+    return x
 end
 
 function ntoarr(n::Int) 
