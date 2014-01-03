@@ -1,4 +1,4 @@
-include("tools.jl")
+include("../tools.jl")
 
 function main()
     mx = 1810
