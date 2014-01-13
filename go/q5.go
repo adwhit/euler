@@ -1,22 +1,20 @@
 package main
 
 import (
-    "fmt"
-    "os"
+	"fmt"
+	"os"
 )
 
 func main() {
-    for x:=21;;x++ {
-        for y:=2;y<= 20;y++ {
-            if x%y != 0 {
-                break
-            }
-            if y == 20 {
-                fmt.Println(x)
-                os.Exit(1)
-            }
-        }
-    }
+	for x := 21; ; x++ {
+		for y := 2; y <= 20; y++ {
+			if x%y != 0 {
+				break
+			}
+			if y == 20 {
+				fmt.Println(x)
+				os.Exit(1)
+			}
+		}
+	}
 }
-
-

@@ -1,11 +1,11 @@
 package main
 
 import (
-    "fmt"
-    "prime"
+	"fmt"
+	"prime"
 )
 
 func main() {
-    l := prime.GenNprimes(10001)
-    fmt.Println(l[len(l) - 1])
+	l := prime.GenNprimes(10001)
+	fmt.Println(l[len(l)-1])
 }

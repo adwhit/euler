@@ -2,6 +2,9 @@ package tools
 
 import (
 	"math"
+    "io/ioutil"
+    "strings"
+    "strconv"
 )
 
 // Returns the factorial of int n
@@ -41,7 +44,7 @@ func SumFact(narr []int) (tot int) {
 }
 
 //Load from text file
-func Load(path string, firstSplit string, secondSplit string) narr [][]int) {
+func Load(path string, firstSplit string, secondSplit string) (narr [][]int) {
 	s, _ := ioutil.ReadFile(path)
 	sarr := strings.Split(string(s), firstSplit)
 	sarr = sarr[:len(sarr)-1]
