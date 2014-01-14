@@ -6,10 +6,10 @@ fn main () {
         for x2 in range(x1, MX) {
             for y1 in range(0, MX) {
                 for y2 in range(0, MX) {
-                    if (x1 == 0 && y1 == 0) || (x2 == 0 && y2 == 0) || (x1 == x2 && y1 == y2) {
-                        continue
-                    }
-                    if (x1 ==x2) && (y1 < y2) {
+                    if (x1 == 0 && y1 == 0) ||
+                       (x2 == 0 && y2 == 0) ||
+                       (x1 == x2 && y1 == y2) ||
+                       ((x1 ==x2) && (y1 < y2)) {
                         continue
                     }
                     if x1*x2 + y1*y2 == 0 ||
