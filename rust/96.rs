@@ -9,7 +9,7 @@ fn reader(chan:Chan<[u8,..81]>) {
     let path = Path::new("../data/sudoku.txt");
     let mut file = BufferedReader::new(File::open(&path));
     let mut arr:[u8,..81] = [0, ..81];
-    for i in range(0,MX) {
+    for _ in range(0,MX) {
         for (lnum,line) in file.lines().enumerate() {
             if lnum == 0 {
                 continue
@@ -197,8 +197,8 @@ fn main() {
     reader(chan);
     let mut succ = 0;
     let mut score = 0;
-    for n in range(0,MX) {
-        let mut arr = port.recv();
+    for _ in range(0,MX) {
+        let arr = port.recv();
         let r = solveloop(arr);
         if r > 0 {
             succ += 1;
