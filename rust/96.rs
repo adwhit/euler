@@ -224,10 +224,10 @@ fn solveloop(mut arr: [u8,..81]) -> uint {
                     let (i, n) = guess(poss, b);
                     let mut newarr = arr;
                     newarr[i] = n;
-                    let res = solveloop(newarr);
-                    if res > 0 {
-                        return res
-                    }
+                    match solveloop(newarr) {
+                        0 => continue,
+                        n => return n
+                    };
                 }
                 return 0
             }

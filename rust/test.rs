@@ -1,13 +1,9 @@
-extern mod extra;
-use extra::bitv::BitvSet;
-use extra::bitv::Bitv;
-
 fn main() {
-    let mut a: int = 0;
-    let adder = |x: int| { a += 1; x + a };
+    let n = 1.5;
+    let m = 4.0/2.0;
+    let n1 = n as uint;
+    let m1 = m as uint;
+    println!("{} {}", n1 as f32 == n, m1 as f32 == m);
+    
 
-    a = 10;
-
-    println!("adder(1) = {} ", adder(1));
-    println!("a = {}", a);
 }
