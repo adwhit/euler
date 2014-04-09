@@ -1,4 +1,3 @@
-import numpy as np
-import scipy
+from scipy.misc import factorial as fact
 
-print scipy.factorial(40)/scipy.factorial(20)**2
+print fact(40)/fact(20)**2
